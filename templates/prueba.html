@@ -1,0 +1,21 @@
+{%load staticfiles%}
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+	<script src="{% static 'js/funciones.js' %}"></script>
+</head>
+<body>
+	<!-- {% for elementos in hola %}
+	<h1>{{elementos}}</h1>
+	{% endfor %} --> 
+	<form id="prueba" onsubmit="return false">
+		{%csrf_token%}
+		<input type="text" placeholder="user" id="Usuario">
+		<input type="password" id="Pass">
+		<button onclick="enviar()">Date</button>
+	</form>
+</body>
+</html>

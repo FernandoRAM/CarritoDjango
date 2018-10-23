@@ -1,0 +1,23 @@
+{%load staticfiles%}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario</title>
+	<script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+	<script src="{% static 'js/funciones.js' %}"></script>
+</head>
+<body>
+	<form id="registro" onsubmit="return false"  enctype="multipart/form-data" method="post">
+		{%csrf_token%}
+		<!--Expediente<input type="number" id="exp"><br><br>
+		Nombre<input type="text" id="nombre"><br><br>
+		Correo<input type="email" id="mail"><br><br>-->
+		Imagen<input type="file" id="img" name="img" accept="image/*"><br><br>
+		<!--Documento<input type="file" id="doc"><br><br>-->
+		<input type="submit" onclick="dale()">
+	</form>
+	{# <button onclick="show()">JAJAJA</button> #}
+	
+
+</body>
+</html>

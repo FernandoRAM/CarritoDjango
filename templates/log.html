@@ -1,0 +1,82 @@
+{%load staticfiles%}
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+		<script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+		<title>Inicia sesión - Amazon</title>
+	</head>
+	<body>
+		<nav class="menu" style="z-index: 9999">
+			<center>
+			<button class="btn btn-link" id="title" onclick="main()">Amazon</button>
+			</center>
+		</nav>
+		<div class="contenedor">
+			<section class="contenedor-productos">
+				<center>
+				<div class="registro" id="reg">
+					<p id="txtRegT">Registro</p>
+					<form onsubmit="return false" id="regForm">
+						{%csrf_token%}
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-user"></i></span>
+							</div>
+							<input type="text" class="form-control" id="nombreReg" placeholder="Nombre Completo">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">@</span>
+							</div>
+							<input type="text" class="form-control" id="mailReg" placeholder="Correo">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-lock"></i></span>
+							</div>
+							<input type="password" id="pass1" class="form-control" placeholder="Crea contraseña">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-lock"></i></span>
+							</div>
+							<input type="password" id="pass2" class="form-control" placeholder="Confirma la contraseña">
+						</div>
+						<input type="submit" class="btn btn-success" value="¡Registrame!" onclick="reg();"><br><br>
+						<button onclick="hide('reg')" class="btn btn-link">¿Ya tienes una cuenta? ¡Inicia sesión ahora!</button>
+					</form>
+				</div>
+				<div class="log" id="log">
+					<p id="txtLogT">Inicia sesión</p>
+					<form onsubmit="return false" id="logForm">
+						{%csrf_token%}
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">@</span>
+							</div>
+							<input type="mail" id='mail' class="form-control" autocomplete="none" placeholder="Correo">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span>
+							</div>
+							<input type="password" class="form-control" id="pass" placeholder="Contraseña">
+						</div>
+						<input type="submit" class="btn btn-success" value="Iniciar sesión" onclick="log();"><br><br>
+						<button onclick="hide('log')" id="hideP" class="btn btn-link">¿No tienes cuenta? ¡Haz tu registro ahora!</button>
+					</form>
+				</div>
+				</center>
+			</section>
+		</div>
+	</body>
+</html>
