@@ -36,14 +36,11 @@ function reg() {
 
 function add(id){
 	if(sessionStorage.getItem('user') != null){
-		console.log(1);
+		console.log(1)
 	}else{
-		console.log(2);
 		if(confirm("No hay una sesión creada\n¿Deseas iniciar seión?")){
 			window.location="../..";
 			window.location="/carrito/log";
-		}else{
-			alert("Producto agregado");
 		}
 	}
 }
@@ -88,8 +85,8 @@ function redirect() {
 }
 
 function fn(){
-	window.location = "../..";
-	window.location = "carrito/log";
+	window.location="../..";
+	window.location="/carrito/log";
 }
 
 function hide(id){
