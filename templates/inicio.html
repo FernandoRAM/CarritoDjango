@@ -39,7 +39,7 @@
 			<section class="contenedor-productos">
 				
 				<div class="contenedor-productos-categoria">
-					<button class="btn btn-link">Blusa</button><br>
+					<a href="{% url 'categorias' 1%}"><button class="btn btn-link">Blusa</button></a><br>
 					{% for elementos in hola %}
 						{% if elementos.4 == 1%}
 							<a href="{% url 'item' elementos.0 %}" title="{{elementos.1}}"><img src="{% static elementos.6 %}"></a>
@@ -47,7 +47,7 @@
 					{% endfor %}
 				</div>
 				<div class="contenedor-productos-categoria">
-					<button class="btn btn-link">Vestidos</button><br>
+					<a href="{%url 'categorias' 2%}"><button class="btn btn-link">Vestidos</button></a><br>
 					{% for elementos in hola %}
 						{% if elementos.4 == 2%}
 							<a href="{% url 'item' elementos.0 %}" title="{{elementos.1}}"><img src="{% static elementos.6 %}"></a>
@@ -55,7 +55,7 @@
 					{% endfor %}
 				</div>
 				<div class="contenedor-productos-categoria">
-					<button class="btn btn-link">Papos</button><br>
+					<a href="{%url 'categorias' 3%}"><button class="btn btn-link">Papos</button></a><br>
 					{% for elementos in hola %}
 						{% if elementos.4 == 3%}
 							<a href="{% url 'item' elementos.0 %}" title="{{elementos.1}}"><img src="{% static elementos.6 %}"></a>
