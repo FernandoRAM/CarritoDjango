@@ -77,7 +77,7 @@
 		margin-bottom: 2%;
 	}
 
-	.contenedor-productos-categoria>button{
+	.contenedor-productos-categoria>a>button{
 		color: #555555;
 		font-size: 23px;
 		font-weight: 600;
