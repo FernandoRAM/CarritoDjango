@@ -38,12 +38,13 @@ def log(request):
 	return render(request, 'log.html')
 
 def categorias(request, idC):
+	array = []
+	diccionario={}
+
 	
 	if idC is not None and idC == '' or idC =='0':
 		print(idC)
 		idC = 0
-		diccionario={}
-		array = []
 		categorias = ad.Categoria.objects.all();
 		for i in categorias:
 			array.append([idC,i.id, i.Nombre])
@@ -51,20 +52,22 @@ def categorias(request, idC):
 		return render(request, 'categorias.html', diccionario)
 		#return HttpResponse(1)
 	else:
-		diccionario={}
-		array = []
-		print (idC)
 		try:
 			categorias = ad.Producto.objects.filter(idCategoria_id=idC);
-			#print(categorias)
-			for x in categorias:
-				array.append([idC,x.id,x.Nombre,x.Precio,x.Descripcion,x.idCategoria_id,x.idSucursal_id,x.Ruta])
-			diccionario["cate"] = array
-			return render(request, 'categorias.html', diccionario)
+			if len(categorias) > 0:
+				for x in categorias:
+					array.append([idC,x.id,x.Nombre,x.Precio,x.Descripcion,x.idCategoria_id,x.idSucursal_id,x.Ruta])
+				diccionario["cate"] = array
+				return render(request, 'categorias.html', diccionario)
+			else:
+				return render(request, 'error.html')
+
 		except Exception as e:
 			diccionario = {}
 
 			return render(request, 'categorias.html')
+				
+			
 		
 
 
