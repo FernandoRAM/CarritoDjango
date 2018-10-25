@@ -8,5 +8,6 @@ urlpatterns = [
 	url(r'^/categorias/(?P<idC>.*)$', views.categorias, name="categorias"),
 	url(r'^/registro$', views.registro, name="registro"),
 	url(r'^/iniciar$', views.iniciar, name="iniciar"),
+	url(r'^/error$', views.error, name="error"),
 	url(r'^/item/(?P<idP>.*)$', views.item, name="item"),
 ]

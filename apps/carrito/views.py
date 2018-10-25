@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.conf import settings
-from appPrueba import models
-from Apps.administrador import models as ad
-from Apps.carrito import models
+from hola import models
+from apps.administrador import models as ad
+from apps.carrito import models
 
 # Create your views here.
 
@@ -50,7 +50,6 @@ def categorias(request, idC):
 			array.append([idC,i.id, i.Nombre])
 		diccionario["cate"] = array
 		return render(request, 'categorias.html', diccionario)
-		#return HttpResponse(1)
 	else:
 		try:
 			categorias = ad.Producto.objects.filter(idCategoria_id=idC);
@@ -60,12 +59,10 @@ def categorias(request, idC):
 				diccionario["cate"] = array
 				return render(request, 'categorias.html', diccionario)
 			else:
-				return render(request, 'error.html')
+				return render(request, 'errorSitio.html')
 
 		except Exception as e:
-			diccionario = {}
-
-			return render(request, 'categorias.html')
+			return render(request, 'errorSitio.html')
 				
 			
 		
@@ -89,4 +86,7 @@ def iniciar(request):
 		return HttpResponse(select.Nombre)
 	else: 
 		return HttpResponse("2")
+	
+def error(request):
+	return render(request, 'errorSitio.html')
 	
